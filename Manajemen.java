@@ -1,42 +1,28 @@
 public class Manajemen {
-     Dosen[] dosenArray;
-     int jumlahDosen;
-     final int MAX_DOSEN = 100;
+        private Dosen[] dosenArray;
+        private int jumlahDosen;
     
         public Manajemen() {
-            dosenArray = new Dosen[MAX_DOSEN];
-            jumlahDosen = 0;
-        }
-    
-        public void tambahDosen(Dosen dosen) {
-            if (jumlahDosen < MAX_DOSEN) {
-                dosenArray[jumlahDosen] = dosen;
-                jumlahDosen++;
-            } else {
-                System.out.println("Kapasitas data dosen penuh.");
-            }
+            dosenArray = new Dosen[5];
+            dosenArray[0] = new Dosen("123456", "Tyfosa", "osa@polinema.ac.id", 2018, "Teknik Informatika");
+            dosenArray[1] = new Dosen("234567", "Primayunita", "nita@polinema.ac.id", 2020, "Sistem Informasi");
+            dosenArray[2] = new Dosen("345678", "Dessy", "Des@polinema.ac.id", 2015, "Teknik Elektro");
+            dosenArray[3] = new Dosen("456789", "Zinky", "zink@polinema.ac.id", 2019, "Akuntansi");
+            dosenArray[4] = new Dosen("567890", "Eko", "eko@polinema.ac.id", 2017, "Manajemen");
+            jumlahDosen = 5;
         }
     
         public void tampilkanSemuaDosen() {
-            if (jumlahDosen == 0) {
-                System.out.println("Belum ada data dosen.");
-                return;
-            }
-    
             System.out.println("\nDaftar Semua Dosen:");
             for (int i = 0; i < jumlahDosen; i++) {
                 dosenArray[i].display();
             }
         }
     
-        // Method untuk mengurutkan berdasarkan NIDN (Bubble Sort)
+        
+         //Mengurutkan dosen berdasarkan NIDN secara ascending
+         //Menggunakan algoritma Bubble Sort
         public void urutkanBerdasarkanNIDN() {
-            if (jumlahDosen == 0) {
-                System.out.println("Belum ada data dosen.");
-                return;
-            }
-            
-            //implementasi bubblesort
             for (int i = 0; i < jumlahDosen - 1; i++) {
                 for (int j = 0; j < jumlahDosen - i - 1; j++) {
                     if (dosenArray[j].getNIDN().compareTo(dosenArray[j + 1].getNIDN()) > 0) {
@@ -49,9 +35,9 @@ public class Manajemen {
             System.out.println("Data dosen telah diurutkan berdasarkan NIDN (Ascending) menggunakan Bubble Sort.");
         }
     
-        // Method untuk mencari berdasarkan nama (Linear Search)
+         //Mencari data dosen berdasarkan nama
+         //Menggunakan algoritma Linear Search
         public Dosen cariBerdasarkanNama(String namaCari) {
-            //implementasi Linear Search
             for (int i = 0; i < jumlahDosen; i++) {
                 if (dosenArray[i].getNama().equalsIgnoreCase(namaCari)) {
                     return dosenArray[i];
@@ -60,13 +46,10 @@ public class Manajemen {
             return null;
         }
     
-        // Method untuk mengurutkan berdasarkan masa kerja (Selection Sort)
+        
+         //Mengurutkan dosen berdasarkan masa kerja secara descending
+         //Menggunakan algoritma Selection Sort
         public void urutkanBerdasarkanMasaKerja() {
-            if (jumlahDosen == 0) {
-                System.out.println("Belum ada data dosen.");
-                return;
-            }
-            //implementasi selection sort
             for (int i = 0; i < jumlahDosen - 1; i++) {
                 int maxIndex = i;
                 for (int j = i + 1; j < jumlahDosen; j++) {
@@ -82,13 +65,4 @@ public class Manajemen {
             }
             System.out.println("Data dosen telah diurutkan berdasarkan Masa Kerja (Descending) menggunakan Selection Sort.");
         }
-
-        public int getJumlahDosen() {
-            return jumlahDosen;
-        }
-    
-        public Dosen[] getDosenArray() {
-            return dosenArray;
-        }
     }
-    

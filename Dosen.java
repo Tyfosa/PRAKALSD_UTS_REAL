@@ -1,10 +1,10 @@
 public class Dosen {
-    String NIDN;
-    String nama;
-    String email;
-    int tahunMasuk;
-    String programStudi;
-    int masaKerja;
+    private String NIDN;
+    private String nama;
+    private String email;
+    private int tahunMasuk;
+    private String programStudi;
+    private int masaKerja;
 
     public Dosen(String NIDN, String nama, String email, int tahunMasuk, String programStudi) {
         this.NIDN = NIDN;
@@ -20,29 +20,13 @@ public class Dosen {
         this.masaKerja = tahunSekarang - this.tahunMasuk;
     }
 
-    public String getNIDN() {
-        return NIDN;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public int getTahunMasuk() {
-        return tahunMasuk;
-    }
-
-    public String getProgramStudi() {
-        return programStudi;
-    }
-
-    public int getMasaKerja() {
-        return masaKerja;
-    }
+    // Getter methods
+    public String getNIDN() { return NIDN; }
+    public String getNama() { return nama; }
+    public String getEmail() { return email; }
+    public int getTahunMasuk() { return tahunMasuk; }
+    public String getProgramStudi() { return programStudi; }
+    public int getMasaKerja() { return masaKerja; }
 
     public void display() {
         System.out.println("NIDN: " + NIDN);
